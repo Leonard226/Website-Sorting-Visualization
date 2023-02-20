@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Sorting Visualization </title>
+    </head>
+    <body>
+        <div class="mainContainer">
+
+            <h1 data-text="Visualization of Sorting Algorithms">Visualization of Sorting Algorithms</h1>
+            <div class="tabContainer">
+                <div class="buttonContainer">
+                    <button onclick="showPanel(0, '#f44336')"> Bubble Sort </button>
+                    <button onclick="showPanel(1, '#4caf50')"> Selection Sort </button>
+                    <button onclick="showPanel(2, '#2196f3')"> Insertion Sort </button>
+                    <button onclick="showPanel(3, '#ff5722')"> Heap Sort </button>
+                    <button onclick="showPanel(4, '#6d00cc')"> Merge Sort </button>
+                    <button onclick="showPanel(5, '#FFDB58')"> Quick Sort </button>
+                </div>
+
+                <div class="tabPanel">
+                    <div class="container-settings">
+                        <button id="init-bubble-id" onclick="bubble_initialization()"> Generate New Array </button>  
+                        <button id="sort-bubble-id" onclick="bubble_sort()"> Bubble Sort </button> 
+                        <div class="range-slider">
+                            <p>Animation speed: &nbsp; <span id="0" class="demo-id"></span> </p>
+                            <input type="range" min="1" max="3" value="2" class="slider" id="RangeBubble">
+                        </div>
+                    </div>
+                
+
+                    <div class="container-bubbleSort" id="container-bubbleSort-id"></div>
+                    <div class="container-bubbleSort-code">
+                        <p> Java Implementation of Bubble Sort</p>
+                        <p class="code">
+                            &nbsp;1 <span style="color: orange"> public void </span> <span style="color: green">bubbleSort</span> (<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;2 &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: lightskyblue;">0</span>; <span style="color: yellow">i</span> < <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>; <span style="color: yellow">i</span>++) { 
+                            <br> &nbsp;3 &ThickSpace; &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange"> int </span> <span style="color: yellow">j</span> = <span style="color: lightskyblue;">1</span>; <span style="color: yellow">j</span> < <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span> - <span style="color: yellow">i</span>; <span style="color: yellow">j</span>++) {
+                            <br> &nbsp;4 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: orange"> if </span> (<span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>] < <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>-<span style="color: lightskyblue;">1</span>]) {
+                            <br> &nbsp;5 &ThickSpace; &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">tmp</span> = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>];
+                            <br> &nbsp;6 &ThickSpace; &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>] = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>-<span style="color: lightskyblue;">1</span>]; 
+                            <br> &nbsp;7 &ThickSpace; &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>-<span style="color: lightskyblue;">1</span>] = <span style="color: yellow">tmp</span>;
+                            <br> &nbsp;8 &ThickSpace; &ThickSpace; &ThickSpace; }
+                            <br> &nbsp;9 &ThickSpace; &ThickSpace; }  
+                            <br> 10 &ThickSpace; }
+                            <br> 11 }  
+                            <br> 12 
+                        </p>
+                        <div class="container-lastLine-bubbleSort">
+                            <p> Time-Complexity: \(\mathcal{O}(n^2)\) </p>
+                            <button id="button-copy-bubble" onclick="copyBubble()"> copy code</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabPanel"> 
+                    <div class="container-settings">
+                        <button id="init-selection-id" onclick="selection_initialization()"> Generate New Array </button>  
+                        <button id="sort-selection-id" onclick="selection_sort()"> Selection Sort </button>  
+                        <div class="range-slider">
+                            <p>Animation speed: &nbsp; <span id="1" class="demo-id"></span> </p>
+                            <input type="range" min="1" max="3" value="2" class="slider" id="RangeSelection">
+                        </div>
+                    </div>
+                    
+                    <div class="container-selectionSort" id="container-selectionSort-id"></div>
+                    <div class="container-selectionSort-code">
+                        <p> Java Implementation of Selection Sort </p>
+                        <p class="code">
+                            &nbsp;1 <span style="color: orange">public void</span> <span style="color: green">selectionSort</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;2 &ThickSpace;  <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: lightskyblue;">0</span>; <span style="color: yellow">i</span> < <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>; <span style="color: yellow">i</span>++) { 
+                            <br> &nbsp;3 &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">opt</span> = <span style="color: yellow">i</span>; 
+                            <br> &nbsp;4 &ThickSpace; &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">j</span> = <span style="color: yellow">i</span> + <span style="color: lightskyblue;">1</span>; <span style="color: yellow">j</span> < <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>; <span style="color: yellow">j</span>++) {
+                            <br> &nbsp;5 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: orange">if</span> (<span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>] < <span style="color: lightskyblue;">array</span>[<span style="color: yellow">opt</span>]) {
+                            <br> &nbsp;6 &ThickSpace; &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellow">opt</span> = <span style="color: yellow">j</span>; 
+                            <br> &nbsp;7 &ThickSpace; &ThickSpace; &ThickSpace; }
+                            <br> &nbsp;8 &ThickSpace; &ThickSpace; }
+                            <br> &nbsp;9 &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">tmp</span> = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">i</span>]; 
+                            <br> 10 &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: yellow">i</span>] = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">opt</span>]; 
+                            <br> 11 &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: yellow">opt</span>] = <span style="color: yellow">tmp</span>; 
+                            <br> 12 &ThickSpace; }
+                            <br> 13 }  
+                            <br> 14
+                        </p>
+                        <div class="container-lastLine-selectionSort">
+                            <p> Time-Complexity: \(\mathcal{O}(n^2)\) </p>
+                            <button id="button-copy-selection" onclick="copySelection()"> copy code</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabPanel"> 
+                    <div class="container-settings">
+                        <button id="init-insertion-id" onclick="insertion_initialization()"> Generate New Array </button>  
+                        <button id="sort-insertion-id" onclick="insertion_sort()"> Insertion Sort </button>   
+                        <div class="range-slider">
+                            <p>Animation speed: &nbsp; <span id="2" class="demo-id"></span> </p>
+                            <input type="range" min="1" max="3" value="2" class="slider" id="RangeInsertion">
+                        </div>
+                    </div>
+                    
+
+                    <div class="container-insertionSort" id="container-insertionSort-id"></div>
+                    <div class="container-insertionSort-code">
+                        <p> Java Implementation of Insertion Sort </p>
+                        <p class="code">
+                            &nbsp;1 <span style="color: orange">public void</span> <span style="color: green">insertionSort</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;2 &ThickSpace;  <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: lightskyblue;">0</span>; <span style="color: yellow">i</span> < <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>; <span style="color: yellow">i</span>++) { 
+                            <br> &nbsp;3 &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">save</span> = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">i</span>]; 
+                            <br> &nbsp;4 &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">opt</span> = <span style="color: yellowgreen">binarySearch</span>(<span style="color: lightskyblue;">array</span>[<span style="color: yellow">i</span>], <span style="color: lightskyblue;">0</span>, <span style="color: yellow">i</span>-<span style="color: lightskyblue;">1</span>, <span style="color: lightskyblue;">array</span>); 
+                            <br> &nbsp;5 &ThickSpace; &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">j</span> = <span style="color: yellow">i</span>-<span style="color: lightskyblue;">1</span>; <span style="color: yellow">j</span> >= <span style="color: yellow">opt</span>; <span style="color: yellow">j</span>--) {
+                            <br> &nbsp;6 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>+<span style="color: lightskyblue;">1</span>] = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">j</span>];
+                            <br> &nbsp;7 &ThickSpace; &ThickSpace; }
+                            <br> &nbsp;8 &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: yellow">opt</span>] = <span style="color: yellow">save</span>; 
+                            <br> &nbsp;9 &ThickSpace; }
+                            <br> 10 }  
+                            <br> 11
+                            <br> 12 <span style="color: orange">private int</span> <span style="color: green">binarySearch</span>(<span style="color: orange">int </span> <span style="color: lightskyblue;">target</span>, <span style="color: orange">int </span><span style="color: lightskyblue;">left</span>, <span style="color: orange">int </span><span style="color: lightskyblue;">right</span>, <span style="color: orange">int</span>[]<span style="color: lightskyblue;"> array</span>) {
+                            <br> 13 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">mid</span> = (<span style="color: orange">int</span>) <span style="color: rgb(57, 105, 167)">Math</span>.<span style="color: yellowgreen">floor</span>((<span style="color: lightskyblue;">left</span> + <span style="color: lightskyblue;">right</span>) / <span style="color: lightskyblue;">2</span>);
+                            <br> 14 &ThickSpace; <span style="color: orange">if</span> (<span style="color: lightskyblue;">right</span> <= <span style="color: lightskyblue;">left</span>) <span style="color: orange">return </span> (<span style="color: lightskyblue;">target</span> > <span style="color: lightskyblue;">array</span>[<span style="color: lightskyblue;">left</span>]) ? (<span style="color: lightskyblue;">left</span> + <span style="color: lightskyblue;">1</span>) : <span style="color: lightskyblue;">left</span>; 
+                            <br> 15 &ThickSpace; <span style="color: orange">else if</span> (<span style="color: lightskyblue;">target</span> == <span style="color: lightskyblue;">array</span>[<span style="color: yellow">mid</span>]) <span style="color: orange">return</span> <span style="color: yellow">mid</span> + <span style="color: lightskyblue;">1</span>; 
+                            <br> 16 &ThickSpace; <span style="color: orange">else if</span> (<span style="color: lightskyblue;">target</span> > <span style="color: lightskyblue;">array</span>[<span style="color: yellow">mid</span>]) <span style="color: orange">return</span> <span style="color: yellowgreen">binarySearch</span>(<span style="color: lightskyblue;">target</span>, <span style="color: yellow">mid</span> + <span style="color: lightskyblue">1</span>, <span style="color: lightskyblue;">right</span>, <span style="color: lightskyblue;">array</span>); 
+                            <br> 17 &ThickSpace; <span style="color: orange">else return</span> <span style="color: yellowgreen"> binarySearch</span>(<span style="color: lightskyblue;">target</span>, <span style="color: lightskyblue;">left</span>, <span style="color: yellow">mid</span> - <span style="color: lightskyblue;">1</span>, <span style="color: lightskyblue;">array</span>); 
+                            <br> 18 }
+                            <br> 19
+                        </p>
+                        <div class="container-lastLine-insertionSort">
+                            <p> Time-Complexity: \(\mathcal{O}(n^2)\) </p>
+                            <button id="button-copy-insertion" onclick="copyInsertion()"> copy code</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabPanel">
+                    <div class="container-settings">
+                        <button id="init-heap-id" onclick="heap_initialization()"> Generate New Array </button>  
+                        <button id="sort-heap-id" onclick="heap_sort()"> Heap Sort </button> 
+                        <div class="range-slider">
+                            <p>Animation speed: &nbsp; <span id="3" class="demo-id"></span> </p>
+                            <input type="range" min="1" max="3" value="2" class="slider" id="RangeHeap">
+                        </div>
+                    </div>
+                    
+
+                    <div class="container-heapSort" id="container-heapSort-id"></div>
+                    <div class="container-heapSort-code">
+                        <p> Java Implementation of Heap Sort </p>
+                        <p class="code">
+                            &nbsp;1 <span style="color: orange">public class</span> <span style="color:rgb(57, 105, 167)">MaxHeap</span> {
+                            <br> &nbsp;2 &ThickSpace; <span style="color: orange">final static int</span> <span style="color: yellow">MAX_CAPACITY</span> = <span style="color: lightskyblue;">10000</span>;
+                            <br> &nbsp;3 &ThickSpace; <span style="color: orange">int</span>[] <span style="color: yellow">heap</span>; 
+                            <br> &nbsp;4 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">size</span> = <span style="color: lightskyblue;">0</span>; 
+                            <br> &nbsp;5 
+                            <br> &nbsp;6 &ThickSpace; <span style="color: orange">public void</span> <span style="color: green"> sort </span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;7 &ThickSpace; &ThickSpace; <span style="color: yellowgreen">buildHeap</span>(<span style="color: lightskyblue;">array</span>); 
+                            <br> &nbsp;8 &ThickSpace; &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: lightskyblue;">0</span>; <span style="color: yellow">i</span> < <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>; <span style="color: yellow">i</span>++) <span style="color: yellowgreen">popMax</span>(); 
+                            <br> &nbsp;9 &ThickSpace; }
+                            <br> 10
+                            <br> 11 &ThickSpace; <span style="color: orange">private void</span> <span style="color: green"> buildHeap</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> 12 &ThickSpace; &ThickSpace; <span style="color: yellow">heap</span> = <span style="color: orange">new int</span>[<span style="color: yellow">MAX_CAPACITY</span>]; 
+                            <br> 13 &ThickSpace; &ThickSpace; <span style="color: yellow">size</span> = <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>; 
+                            <br> 14 &ThickSpace; &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: lightskyblue;">0</span>; <span style="color: yellow">i</span> < <span style="color: yellow">size</span>; <span style="color: yellow">i</span>++) <span style="color: yellow">heap</span>[<span style="color: yellow">i</span>] = <span style="color: lightskyblue;">array</span>[<span style="color: yellow">i</span>]; 
+                            <br> 15 &ThickSpace; &ThickSpace; <span style="color: orange">for</span> (<span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: yellow;">size</span> /  <span style="color: lightskyblue">2</span>; <span style="color: yellow">i</span> >= <span style="color: lightskyblue">0</span>; <span style="color: yellow">i</span>--) <span style="color: yellowgreen"> restoreHeapCondition</span>(<span style="color: yellow">i</span>); 
+                            <br> 16 &ThickSpace; }
+                            <br> 17
+                            <br> 18 &ThickSpace; <span style="color: orange">private void</span> <span style="color: green"> restoreHeapCondition</span>(<span style="color: orange">int</span> <span style="color: lightskyblue;">root</span>) {
+                            <br> 19 &ThickSpace; &ThickSpace; <span style="color: orange">while</span> (<span style="color: lightskyblue;">2</span> * <span style="color: lightskyblue;">root</span> + <span style="color: lightskyblue;">1</span> < <span style="color: yellow">size</span>) {
+                            <br> 20 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">child</span> = <span style="color: lightskyblue;">2</span> * <span style="color: lightskyblue;">root</span> + <span style="color: lightskyblue;">1</span>; 
+                            <br> 21 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: orange">if</span> (<span style="color: yellow">child</span> + <span style="color: lightskyblue;">1</span> < <span style="color: yellow">size</span> && <span style="color: yellow">heap</span>[<span style="color: yellow">child</span>] < <span style="color: yellow">heap</span>[<span style="color: yellow">child</span>+<span style="color: lightskyblue;">1</span>]) <span style="color: yellow">child</span> += <span style="color: lightskyblue;">1</span>;
+                            <br> 22 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: orange">if</span> (<span style="color: yellow">heap</span>[<span style="color: lightskyblue;">root</span>] > <span style="color: yellow">heap</span>[<span style="color: yellow">child</span>]) <span style="color: orange">return</span>; 
+                            <br> 23 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellowgreen">swap</span>(<span style="color: lightskyblue;">root</span>, <span style="color: yellow">child</span>); 
+                            <br> 24 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">root</span> = <span style="color: yellow">child</span>; 
+                            <br> 25 &ThickSpace; &ThickSpace; }
+                            <br> 26 &ThickSpace; }
+                            <br> 27
+                            <br> 28 &ThickSpace; <span style="color: orange">private int</span> <span style="color: green">popMax</span>() {
+                            <br> 29 &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">value</span> = <span style="color: yellow">heap</span>[<span style="color: lightskyblue;">0</span>];
+                            <br> 30 &ThickSpace; &ThickSpace; <span style="color: yellow">size</span> -= <span style="color: lightskyblue;">1</span>;  
+                            <br> 31 &ThickSpace; &ThickSpace; <span style="color: yellowgreen"> swap</span>(<span style="color: lightskyblue;">0</span>, <span style="color: yellow">size</span>);  
+                            <br> 32 &ThickSpace; &ThickSpace; <span style="color: yellowgreen"> restoreHeapCondition</span>(<span style="color: lightskyblue;">0</span>); 
+                            <br> 33 &ThickSpace; &ThickSpace; <span style="color: orange">return</span> <span style="color: yellow">value</span>; 
+                            <br> 34 &ThickSpace; }
+                            <br> 35 
+                            <br> 36 &ThickSpace; <span style="color: orange">private void</span> <span style="color: green">swap</span>(<span style="color: orange">int</span> <span style="color: lightskyblue;">i</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">j</span>) {
+                            <br> 37 &ThickSpace; &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">tmp</span> = <span style="color: yellow">heap</span>[<span style="color: lightskyblue;">i</span>]; 
+                            <br> 38 &ThickSpace; &ThickSpace; <span style="color: yellow">heap</span>[<span style="color: lightskyblue;">i</span>] = <span style="color: yellow">heap</span>[<span style="color: lightskyblue;">j</span>]; 
+                            <br> 39 &ThickSpace; &ThickSpace; <span style="color: yellow">heap</span>[<span style="color: lightskyblue;">j</span>] = <span style="color: yellow">tmp</span>; 
+                            <br> 40 &ThickSpace; }
+                            <br> 41 }
+                            <br> 42
+                        </p>
+                        <div class="container-lastLine-heapSort">
+                            <p> Time-Complexity: \(\mathcal{O}(n \log n)\) </p>
+                            <button id="button-copy-heap" onclick="copyHeap()"> copy code</button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="tabPanel"> 
+                    <div class="container-settings">
+                        <button id="init-merge-id" onclick="merge_initialization()"> Generate New Array </button>  
+                        <button id="sort-merge-id" onclick="merge_sort()"> Merge Sort </button>    
+                        <div class="range-slider">
+                            <p>Animation speed: &nbsp; <span id="4" class="demo-id"></span> </p>
+                            <input type="range" min="1" max="3" value="2" class="slider" id="RangeMerge">
+                        </div>
+                    </div>
+
+                    <div class="container-mergeSort" id="container-mergeSort-id"></div>
+                    <div class="container-mergeSort-code">
+                        <p> Java Implementation of Merge Sort </p>
+                        <p class="code">
+                            &nbsp;1 <span style="color: orange">public void</span> <span style="color: green"> mergeSort</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;2 &ThickSpace; <span style="color: orange">int</span>[] <span style="color: yellow">auxiliaryArray</span> = <span style="color:rgb(57, 105, 167)">Arrays</span>.<span style="color: yellowgreen">copyOf</span>(<span style="color: lightskyblue;">array</span>, <span style="color: lightskyblue;">array</span>.<span style="color: turquoise;">length</span>);
+                            <br> &nbsp;3 &ThickSpace; <span style="color: yellowgreen"> mergeSortHelper</span>(<span style="color: lightskyblue;">array</span>, <span style="color: lightskyblue;">0</span>, <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>-<span style="color: lightskyblue;">1</span>, <span style="color: yellow">auxiliaryArray</span>);
+                            <br> &nbsp;4 }
+                            <br> &nbsp;5 
+                            <br> &nbsp;6 <span style="color: orange">private void</span> <span style="color: green"> mergeSortHelper</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">mainArray</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">startIdx</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">endIdx</span>, <span style="color: orange">int</span>[] <span style="color: lightskyblue;">auxiliaryArray</span>) {
+                            <br> &nbsp;7 &ThickSpace; <span style="color: orange">if</span> (<span style="color: lightskyblue;">startIdx</span> == <span style="color: lightskyblue;">endIdx</span>) <span style="color: orange">return</span>; 
+                            <br> &nbsp;8 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">middleIdx</span> = (<span style="color: lightskyblue;">startIdx</span> + <span style="color: lightskyblue;">endIdx</span>) / <span style="color: lightskyblue;">2</span>;  
+                            <br> &nbsp;9 
+                            <br> 10 &ThickSpace; <span style="color: yellowgreen"> mergeSortHelper</span>(<span style="color: lightskyblue;">auxiliaryArray</span>, <span style="color: lightskyblue;">startIdx</span>, <span style="color: yellow">middleIdx</span>, <span style="color: lightskyblue;">mainArray</span>);
+                            <br> 11 &ThickSpace; <span style="color: yellowgreen"> mergeSortHelper</span>(<span style="color: lightskyblue;">auxiliaryArray</span>, <span style="color: yellow">middleIdx</span> + <span style="color: lightskyblue;">1</span>, <span style="color: lightskyblue;">endIdx</span>, <span style="color: lightskyblue;">mainArray</span>);
+                            <br> 10 &ThickSpace; <span style="color: yellowgreen"> doMerge</span>(<span style="color: lightskyblue;">mainArray</span>, <span style="color: lightskyblue;">startIdx</span>, <span style="color: yellow">middleIdx</span>, <span style="color: lightskyblue;">endIdx</span>, <span style="color: lightskyblue;">auxiliaryArray</span>); 
+                            <br> 11 } 
+                            <br> 12  
+                            <br> 13 <span style="color: orange">private void</span> <span style="color: green"> doMerge</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">mainArray</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">startIdx</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">middleIdx</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">endIdx</span>, <span style="color: orange">int</span>[] <span style="color: lightskyblue;">auxiliaryArray</span>) {
+                            <br> 14 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">k</span> = <span style="color: lightskyblue;">startIdx</span>; 
+                            <br> 15 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">i</span> = <span style="color: lightskyblue;">startIdx</span>;
+                            <br> 16 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">j</span> = <span style="color: lightskyblue;">middleIdx</span> + <span style="color: lightskyblue;">1</span>; 
+                            <br> 17 
+                            <br> 18 &ThickSpace; <span style="color: orange">while</span> (<span style="color: yellow">i</span> <= <span style="color: lightskyblue;">middleIdx </span> && <span style="color: yellow">j</span> <= <span style="color: lightskyblue;">endIdx</span>) {
+                            <br> 19 &ThickSpace; &ThickSpace; <span style="color: orange">if</span> (<span style="color: lightskyblue;">auxiliaryArray</span>[<span style="color: yellow">i</span>] <= <span style="color: lightskyblue;">auxiliaryArray</span>[<span style="color: yellow">j</span>]) {
+                            <br> 20 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">mainArray</span>[<span style="color: yellow">k</span>++] = <span style="color: lightskyblue;">auxiliaryArray</span>[<span style="color: yellow">i</span>++];
+                            <br> 21 &ThickSpace; &ThickSpace; } <span style="color: orange">else</span> {
+                            <br> 22 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">mainArray</span>[<span style="color: yellow">k</span>++] = <span style="color: lightskyblue;">auxiliaryArray</span>[<span style="color: yellow">j</span>++];
+                            <br> 23 &ThickSpace; &ThickSpace; } 
+                            <br> 24 &ThickSpace; }
+                            <br> 25 &ThickSpace; <span style="color: orange">while</span> (<span style="color: yellow">i</span> <= <span style="color: lightskyblue;">middleIdx</span>) {
+                            <br> 26 &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">mainArray</span>[<span style="color: yellow">k</span>++] = <span style="color: lightskyblue;">auxiliaryArray</span>[<span style="color: yellow">i</span>++];
+                            <br> 27 &ThickSpace; }
+                            <br> 28 &ThickSpace; <span style="color: orange">while</span> (<span style="color: yellow">j</span> <= <span style="color: lightskyblue;">endIdx</span>) {
+                            <br> 29 &ThickSpace; &ThickSpace; <span style="color: lightskyblue;">mainArray</span>[<span style="color: yellow">k</span>++] = <span style="color: lightskyblue;">auxiliaryArray</span>[<span style="color: yellow">j</span>++];   
+                            <br> 30 &ThickSpace; }  
+                            <br> 31 } 
+                            <br> 32                         
+                        </p>
+                        <div class="container-lastLine-mergeSort">
+                            <p> Time-Complexity: \(\mathcal{O}(n \log n)\)</p>
+                            <button id="button-copy-merge" onclick="copyMerge()"> copy code</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabPanel"> 
+                    <div class="container-settings">
+                        <button id="init-quick-id" onclick="quick_initialization()"> Generate New Array </button>  
+                        <button id="sort-quick-id" onclick="quick_sort()"> Quick Sort </button>    
+                        <div class="range-slider">
+                            <p>Animation speed: &nbsp; <span id="5" class="demo-id"></span> </p>
+                            <input type="range" min="1" max="3" value="2" class="slider" id="RangeQuick">
+                        </div>
+                    </div>
+
+
+                    <div class="container-quickSort" id="container-quickSort-id"></div>    
+                    <div class="container-quickSort-code">
+                        <p> Java Implementation of Quick Sort </p>
+                        <p class="code">
+                            &nbsp;1 <span style="color: orange">public void</span> <span style="color: green"> quickSort</span>(<span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;2 &ThickSpace; <span style="color: yellowgreen"> sort</span>(<span style="color: lightskyblue">0</span>, <span style="color: lightskyblue;">array</span>.<span style="color: turquoise">length</span>, <span style="color: lightskyblue;">array</span>);
+                            <br> &nbsp;3 }
+                            <br> &nbsp;4 
+                            <br> &nbsp;5 <span style="color: orange">private void</span> <span style="color: green"> sort</span>(<span style="color: orange">int</span> <span style="color: lightskyblue;">left</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">right</span>, <span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> &nbsp;6 &ThickSpace; <span style="color: orange">if</span> (<span style="color: lightskyblue;">right</span> - <span style="color: lightskyblue;">left</span> < <span style="color: lightskyblue;">2</span>) <span style="color: orange">return</span>; 
+                            <br> &nbsp;7 
+                            <br> &nbsp;8 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">pivot</span> = <span style="color: lightskyblue;">array</span>[<span style="color: lightskyblue;">left</span>];
+                            <br> &nbsp;9 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">leftPartitionLength</span> = <span style="color: lightskyblue;">0</span>; 
+                            <br> 10 &ThickSpace;  <span style="color: orange">int</span> <span style="color: yellow">rightPartitionLength</span> = <span style="color: lightskyblue;">0</span>; 
+                            <br> 11 &ThickSpace;  <span style="color: orange">int</span> <span style="color: yellow">index</span> = <span style="color: lightskyblue;">left</span>; 
+                            <br> 10 &ThickSpace; 
+                            <br> 11 &ThickSpace; <span style="color: orange">while</span> (<span style="color: yellow">index</span> < <span style="color: lightskyblue;">right</span> - <span style="color: yellow">rightPartitionLength</span>) {
+                            <br> 12 &ThickSpace; &ThickSpace; <span style="color: orange">if</span> (<span style="color: lightskyblue;">array</span>[<span style="color: yellow">index</span>] > <span style="color: yellow">pivot</span>) {
+                            <br> 13 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellow">rightPartitionLength</span> += <span style="color: lightskyblue;">1</span>;
+                            <br> 14 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellowgreen"> swap</span>(<span style="color: yellow">index</span>, <span style="color: lightskyblue;">right</span> - <span style="color: yellow">rightPartitionLength</span>, <span style="color: lightskyblue;">array</span>);
+                            <br> 15 &ThickSpace; &ThickSpace; } <span style="color: orange">else if</span> (<span style="color: lightskyblue;">array</span>[<span style="color: yellow">index</span>] < <span style="color: yellow">pivot</span>) { 
+                            <br> 16 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellowgreen">swap</span>(<span style="color: yellow">index</span>, <span style="color: lightskyblue;">left</span> + <span style="color: yellow">leftPartitionLength</span>, <span style="color: lightskyblue;">array</span>);
+                            <br> 17 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellow">leftPartitionLength</span> += <span style="color: lightskyblue;">1</span>;
+                            <br> 18 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellow">index</span> += <span style="color: lightskyblue;">1</span>; 
+                            <br> 19 &ThickSpace; &ThickSpace; } <span style="color: orange">else</span> {
+                            <br> 20 &ThickSpace; &ThickSpace; &ThickSpace; <span style="color: yellow">index</span> += <span style="color: lightskyblue;">1</span>;
+                            <br> 21 &ThickSpace; &ThickSpace; }
+                            <br> 22 &ThickSpace; }
+                            <br> 23 &ThickSpace; <span style="color: yellowgreen">sort</span>(<span style="color: lightskyblue;">left</span>, <span style="color: lightskyblue;">left</span> + <span style="color: yellow">leftPartitionLength</span>, <span style="color: lightskyblue;">array</span>); 
+                            <br> 25 &ThickSpace; <span style="color: yellowgreen">sort</span>(<span style="color: lightskyblue;">right</span> - <span style="color: yellow">rightPartitionLength</span>, <span style="color: lightskyblue;">right</span>, <span style="color: lightskyblue;">array</span>); 
+                            <br> 26 }
+                            <br> 27 
+                            <br> 28 <span style="color: orange">private void</span> <span style="color: green">swap</span>(<span style="color: orange">int</span> <span style="color: lightskyblue;">i</span>, <span style="color: orange">int</span> <span style="color: lightskyblue;">j</span>, <span style="color: orange">int</span>[] <span style="color: lightskyblue;">array</span>) {
+                            <br> 29 &ThickSpace; <span style="color: orange">int</span> <span style="color: yellow">tmp</span> = <span style="color: lightskyblue;">array</span>[<span style="color: lightskyblue;">i</span>];
+                            <br> 30 &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: lightskyblue;">i</span>] = <span style="color: lightskyblue;">array</span>[<span style="color: lightskyblue;">j</span>]; 
+                            <br> 31 &ThickSpace; <span style="color: lightskyblue;">array</span>[<span style="color: lightskyblue;">j</span>] = <span style="color: yellow">tmp</span>; 
+                            <br> 32 }
+                            <br> 33                        
+                        </p>
+                        <div class="container-lastLine-quickSort">
+                            <P> Average-Time-Complexity: \(\mathcal{O}(n \log n)\), Worst-case: \(\mathcal{O}(n^2)\) </p>
+                            <button id="button-copy-quick" onclick="copyQuick()"> copy code</button>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            <div> 
+                <p class="quote" id="quote-id">
+                    "Sorting is important in Computer Science for the same reason it is important in everyday life. 
+                    It is easier and faster to locate items in a sorted list than in an unsorted. 
+                    Efficient Sorting is essential for optimizing the efficiency of other algorithms that require input data in sorted list. 
+                    Sorting is also often useful for canonicalizing data and for producing human-readable output." 
+                </p>
+            </div>
+            <div>
+                <p class="author" id="author-id">
+                    <span style="font-weight: bold">About the author:</span>
+                    <br> Hello, my name is Leonard and I'm a first year computer science student at ETH Zurich. 
+                    Building the website was just a little vacation project, 
+                    but I hope it can give you more intuition about how sorting algorithms actually work. 
+                    <br> Have a great day!  
+                </p>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

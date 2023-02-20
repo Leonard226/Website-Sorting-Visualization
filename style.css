@@ -1,0 +1,187 @@
+h1 {
+    font-family: Cambria, Cochin; 
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+body {
+    background-color: rgb(21, 32, 43);
+}
+.tabContainer{
+    width: 90%;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto; 
+}
+
+.tabContainer .buttonContainer{
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+}
+.tabContainer .buttonContainer button{
+    width: 16.6666666667%;
+    height: 100%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 18px;
+    background-color: #eee;
+}
+.tabContainer .buttonContainer button:hover{
+    background-color: #d7d4d4;
+}
+.tabContainer .tabPanel{
+    height: 85%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 22px;
+    display: none;
+    margin-bottom: 60px;
+}
+
+.container-bubbleSort, .container-selectionSort, .container-insertionSort, .container-heapSort, .container-quickSort, .container-mergeSort {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    align-items: last baseline;
+}
+
+.tabPanel button {
+    margin: 20px; 
+    background-color: rgb(21, 32, 43);
+    color: white; 
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: opacitiy 0.15s;
+    vertical-align: top;
+  }
+  .tabPanel button:hover {
+    opacity: 0.8;
+  }
+  .tabPanel button:active {
+    opacity: 0.5;
+  }
+
+.bar {
+    width: 5px;
+    background-color: turquoise;
+    border: 0.5px solid black;
+    margin: 0.5px;
+}
+
+.container-bubbleSort-code, .container-selectionSort-code, .container-heapSort-code, .container-mergeSort-code, .container-quickSort-o {
+    justify-content: left;
+    border: 1px solid black;
+}
+
+p {
+    font-weight: bold;
+    font-family: Cambria, Cochin;
+    color: black;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px; 
+}
+
+.code {
+    font-weight: normal;
+    background-color: rgb(33, 33, 33);
+    color: white;
+    font-family: monospace; 
+    font-size: large;
+}
+
+.container-lastLine-bubbleSort, .container-lastLine-selectionSort, .container-lastLine-insertionSort, 
+.container-lastLine-heapSort, .container-lastLine-mergeSort, .container-lastLine-quickSort {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+.container-settings {
+    display: flex;
+    justify-content: center;
+}
+
+.demo-id {
+    position: absolute;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 150px; 
+    height: 10px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    position: absolute;
+    left: 45px;
+    top: 55px; 
+}
+
+.range-slider {
+    justify-content: center;
+    justify-items: center;
+    position: relative;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+  
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+ 
+
+.quote {
+    color: white;
+    font-size: 25px;
+    font-weight:  normal;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.author {
+    font-family: Cambria, Cochin;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
