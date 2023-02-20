@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: center;
     height: 600px;
-    align-items: last baseline;
+    align-items: flex-end;
 }
 
 .tabPanel button {
@@ -79,6 +79,7 @@ body {
     background-color: turquoise;
     border: 0.5px solid black;
     margin: 0.5px;
+    align-self: flex-end;
 }
 
 .container-bubbleSort-code, .container-selectionSort-code, .container-heapSort-code, .container-mergeSort-code, .container-quickSort-o {
